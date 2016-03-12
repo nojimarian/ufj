@@ -6,3 +6,5 @@ jspm install -y
 
 これでlocalhost:9000でぶらうずできる
 gulp watch
+
+サーバー上でも動いた
