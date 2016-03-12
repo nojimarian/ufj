@@ -1,4 +1,6 @@
 <template>
+  <canvas class="display-top">
+  </canvas>
   <section class="au-animate">
     <h2>${heading}</h2>
     <form role="form" submit.delegate="submit()">
@@ -17,4 +19,11 @@
       <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </section>
+  <style>
+      .display-top {
+        height: 40%;
+        width: 100%;
+        background-color: gray;
+      }
+  </style>
 </template>
