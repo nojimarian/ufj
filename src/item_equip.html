@@ -1,20 +1,55 @@
 <template>
-  <section class="au-animate">
+  <style>
+    .display-top {
+      height: 40%;
+      width: 100%;
+      background-color: gray;
+    }
+    .select-field {
+      text-align:center;
+    }
+    .select-item {
+      float:left;
+    }
+    .buttons {
+      clear:both;
+      text-align: center;
+    }
+    .buttons a {
+      margin: 10% 5%;
+      width: 30%;
+      height: 5%;
+    }
+    h3 {
+      clear:both ;
+    }
+  </style>
+  <canvas class="display-top">
+  </canvas>
+  <section>
     <h2>${heading}</h2>
     <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
+      <h3>髪型</h3>
+      <div class="select-field">
+        <div class="select-item">
+          <input type="radio" name="hear">img
+        </div>
+        <div class="select-item">
+          <input type="radio" name="hear">img
+        </div>
       </div>
-      <div class="form-group">
-        <label for="ln">Last Name</label>
-        <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
+      <h3>衣装</h3>
+      <div class="select-field">
+        <div class="select-item">
+          <input type="radio" name="costume">img
+        </div>
+        <div class="select-item">
+          <input type="radio" name="costume">img
+        </div>
       </div>
-      <div class="form-group">
-        <label>Full Name</label>
-        <p class="help-block">${fullName | upper}</p>
+      <div class="buttons">
+        <button type="submit" class="btn btn-default">着替える</button>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
     </form>
   </section>
 </template>

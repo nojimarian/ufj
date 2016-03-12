@@ -2,5 +2,8 @@
 
 export class ItemEquip {
   heading = 'ドキドキお着替えターイム';
+
+  submit() {
+  }
 }
 

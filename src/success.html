@@ -32,8 +32,10 @@
       ${character}がレベルアップしました<br>
         <strong>Lv. ${level}</strong>
     </p>
-    <div class="buttons">
-      <a class="btn btn-default" href="#">もどる</a>
-    </div>
+      <form role="form" submit.delegate="submit()">
+      <div class="buttons">
+          <button type="submit" class="btn btn-default">もどる</button>
+      </div>
+      </form>
   </section>
 </template>
