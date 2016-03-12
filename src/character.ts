@@ -7,8 +7,3 @@ export class Character {
   discription = 'hogehoge';
 }
 
-export class UpperValueConverter {
-  toView(value) {
-    return value && value.toUpperCase();
-  }
-}

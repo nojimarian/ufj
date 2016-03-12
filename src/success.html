@@ -1,0 +1,39 @@
+<template>
+  <style>
+      .character-board {
+          text-align: center;
+          width: 100%;
+          height: 120px;
+          margin: 10% 0;
+      }
+      .character-img {
+          width: 50%;
+          height: 100%;
+          margin: auto;
+          background-color: gray;
+      }
+      p {
+        text-align: center;
+      }
+      .buttons {
+        text-align: center;
+      }
+      .buttons a {
+        width: 30%;
+        height: 5%;
+      }
+  </style>
+  <section>
+    <h2>${heading}</h2>
+    <div class="character-board">
+      <img class="character-img">
+    </div>
+    <p>
+      ${character}がレベルアップしました<br>
+        <strong>Lv. ${level}</strong>
+    </p>
+    <div class="buttons">
+      <a class="btn btn-default" href="#">もどる</a>
+    </div>
+  </section>
+</template>
