@@ -1,20 +1,39 @@
 <template>
-  <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="form-group">
-        <label for="fn">First Name</label>
-        <input type="text" value.bind="firstName" class="form-control" id="fn" placeholder="first name">
-      </div>
-      <div class="form-group">
-        <label for="ln">Last Name</label>
-        <input type="text" value.bind="lastName" class="form-control" id="ln" placeholder="last name">
-      </div>
-      <div class="form-group">
-        <label>Full Name</label>
-        <p class="help-block">${fullName | upper}</p>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+  <style>
+      .character-board {
+          text-align: center;
+          width: 100%;
+          height: 120px;
+          margin: 10% 0;
+      }
+      .character-img {
+          width: 50%;
+          height: 100%;
+          margin: auto;
+          background-color: gray;
+      }
+      p {
+        text-align: center;
+      }
+      .buttons {
+        text-align: center;
+      }
+      .buttons a {
+        width: 30%;
+        height: 5%;
+      }
+  </style>
+  <section>
+    <h2>${heading}の結果</h2>
+    <div class="character-board">
+      <img class="character-img">
+    </div>
+    <p>
+      <strong>${new_character}</strong><br>
+      入手しました
+    </p>
+    <div class="buttons">
+      <a class="btn btn-default" href="#character">もどる</a>
+    </div>
   </section>
 </template>
