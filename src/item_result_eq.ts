@@ -7,9 +7,8 @@ import 'fetch';
 import {Router} from 'aurelia-router';
 
 export class InvestResult {
-  heading = 'アイテムゲット！';
+  heading = 'うっぉぉぉお！！！着替えました';
   router;
-    message = 'はずれ！';
   static inject() { return [Router]; }
   constructor(router) { this.router = router; }
 
@@ -20,10 +19,6 @@ export class InvestResult {
         .then(response => response.json())
         .then(response => {
           this.response = response;
-            console.log(this.response);
-            if (this.response.name) {
-                this.message = this.response.name+'をゲットしました！';
-            }
         });
     return a;
   }

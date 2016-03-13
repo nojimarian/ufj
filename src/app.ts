@@ -17,6 +17,7 @@ export class App {
       { route: 'item_equip',  name:'item_equip',  moduleId:'item_equip',  nav: false, title: 'item_equip' },
       { route: 'item_invest', name:'item_invest', moduleId:'item_invest', nav: false, title: 'item_invest' },
       { route: 'item_result', name:'item_result', moduleId:'item_result', nav: false, title: 'item_result' },
+      { route: 'item_result_eq', name:'item_result_eq', moduleId:'item_result_eq', nav: false, title: 'item_result_eq' },
       { route: 'friend',      name:'friend',      moduleId:'friend',      nav: true,  title: 'フレンド' },
       { route: 'data',        name:'data',        moduleId:'data',        nav: true,  title: 'データ' },
       { route: 'setting',     name:'setting',     moduleId:'setting',     nav: true,  title: '設定' },

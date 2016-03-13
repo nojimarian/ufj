@@ -18,7 +18,7 @@ export class ItemEquip {
           this.response = response;
         });
     a;
-    this.router.navigate("item");
+    this.router.navigate("item_result_eq");
   }
   response;
   activate() {
