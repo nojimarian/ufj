@@ -19,7 +19,6 @@ export class Character {
         .then(response => response.json())
         .then(response => {
           this.response = response;
-          console.log(this.response)
         });
     return a;
   }
