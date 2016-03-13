@@ -5,11 +5,9 @@
       width: 100%;
       background-color: gray;
     }
-    .select-field {
-      text-align:center;
-    }
-    .select-item {
-      float:left;
+
+    .status1 {
+        background-color: red;
     }
     .buttons {
       clear:both;
@@ -30,21 +28,18 @@
     <h2>${heading}</h2>
     <form role="form" submit.delegate="submit()">
       <h3>髪型</h3>
-      <div class="select-field">
-        <div class="select-item">
-          <input type="radio" name="hear">img
-        </div>
-        <div class="select-item">
-          <input type="radio" name="hear">img
+      <!-- ラジオボタンできてない-->
+      <div repeat.for="row of response.hairs">
+        <div class="status${row.is_set}">
+          <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id">
+          ${row.name}
         </div>
       </div>
       <h3>衣装</h3>
-      <div class="select-field">
-        <div class="select-item">
-          <input type="radio" name="costume">img
-        </div>
-        <div class="select-item">
-          <input type="radio" name="costume">img
+      <div repeat.for="row of response.cloths">
+        <div class="status${row.is_set}">
+          <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id">
+          ${row.name}
         </div>
       </div>
       <div class="buttons">
