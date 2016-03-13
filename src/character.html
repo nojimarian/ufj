@@ -18,11 +18,17 @@
   </div>
   <section>
     <h2>${heading}</h2>
-    <ul>
-      <li>レベル：${level}</li>
-      <li>好感度：${favorability}</li>
-      <li>説明：<br>${discription}</li>
-    </ul>
+    <div repeat.for="row of response.characters">
+      <div class="${row.status}">
+        <ul>
+          <li>レベル：${row.level}</li>
+          <li>なまえ：${row.name}</li>
+          <li>img：<$row.image></li>
+          <li>説明：<br>${row.discription}</li>
+        </ul>
+      </div>
+    </div>
+
     <div class="buttons">
       <a class="btn btn-default" href="#character_summon">投資</a>
       <a class="btn btn-default" href="#character_fuse">M&A</a>

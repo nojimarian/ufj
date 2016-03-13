@@ -26,10 +26,13 @@
   <canvas class="display-top">
   </canvas>
   <section class="au-animate">
-    <h2>${heading}</h2>
+    <h2>${response.message}</h2>
     <ul>
-      <li>レベル：${level}</li>
-      <li>貯金額 / 目標額：${current} / ${goal}</li>
+      <li>なまえ：${response.bank.name}</li>
+      <li>レベル：${response.bank.level}</li>
+      <li>貯金額 / 目標額：${response.user.achievement} / ${response.user.goal}</li>
+      <li>img：${response.img}</li>
+      <li>bank_img：${response.bank_image}</li>
     </ul>
     <div class="buttons-2">
       <a class="btn btn-default" href="#character">キャラ</a>
