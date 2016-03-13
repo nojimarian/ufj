@@ -1,26 +1,140 @@
 <template>
   <style>
-    .display-top {
-      height: 40%;
+    html, body {
       width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    #home>div {
+      position: fixed;
+    }
+
+    .counter {
+      bottom: 0;
+      height: 50%;
+      width: 100%;
+
+      box-sizing: border-box;
+      padding-top: 5em;
+
+      background-color: blue;
+
+    }
+
+    .background
+    {
+      width: 100%; height: 100%;
+      background-image: url(../styles/background.png);
+      background-size: contain;
+      background-color: red;
+    }
+
+    .message>div {
+      margin-bottom: 0.5em;
+    }
+
+    .girl {
+      font-size: 1.2em;
+      text-align: right;
+    }
+
+    .back {
+      left: 1em;
+      top: 1em;
+    }
+
+    .back button {
+      width: 4em;
+    }
+
+    .character {
+      left: 20%;
+      height: 50%;
+      top: 10%;
+      width: 60%;
+      background-color: yellow;
+    }
+
+    button {
+      border: solid 1px black;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      padding: 0.3em 0;
+
+      font-size: 4em;
+    }
+
+    .buttons>div {
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .buttons .top button {
+      width: 46%;
+    }
+
+    .invest {
+      margin-right: 50px
+    }
+
+
+    .items {
+      margin: 5em auto;
+      width: 90%;
+    }
+
+    .items img {
+      width: 150px;
+      height: 150px;
       background-color: gray;
     }
-    .buttons {
+
+    .name {
       text-align: center;
+      line-height: 150px;
+      font-size: 3em;
     }
-    .buttons a {
-      margin: 10% 5%;
-      width: 30%;
-      height: 5%;
+
+    .itemlist {
+      margin-top: 1em;
+    }
+
+    .itemlist>* {
+      display: block;
+      float: left;
+      margin-left: 2em;
+      width: 150px;
+      height: 150px;
+      box-sizing: border-box;
+    }
+
+    .itemlist::after {content: ""; display:block; clear: both;}
+
+    .items .name {
+      background-color: white;
+      border: solid 4px black;
+      margin-left: 0;
+    }
+
+    .items input {
+      display: none;
     }
   </style>
-  <canvas class="display-top">
-  </canvas>
-  <section class="au-animate">
-    <h2>${heading}</h2>
-    <div class="buttons">
-      <a class="btn btn-default" href="#item_invest">投資</a>
-      <a class="btn btn-default" href="#item_equip">着替え</a>
+  <div id="home">
+    <div class="background"></div>
+    <div class="back">
+      <button>HOME</button>
     </div>
-  </section>
+    <div class="character"></div>
+    <div class="counter">
+      <div class="buttons">
+        <div class="top">
+          <a href="#item_invest"><button class="invest">投資</button></a>
+          <a href="#item_equip"><button class="change">着替え</button></a>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>

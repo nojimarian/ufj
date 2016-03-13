@@ -1,20 +1,48 @@
 <template>
   <style>
-  .buttons {
-      text-align: center;
-      margin: auto;
-  }
-  .buttons a{
-      width: 30%;
-      height: 5%;
-  }
+
+      body {
+          background-color: red;
+      }
+
+      section {
+          font-size: 2em;
+          padding: 1em;
+      }
+
+      .buttons {
+          text-align: center;
+          margin: auto;
+      }
+      .buttons button{
+          width: 50%;
+          height: 5%;
+      }
+
+      button {
+          border: solid 1px black;
+          background-color: rgba(0,0,0,0.8);
+          color: white;
+          padding: 0.3em 0;
+
+          font-size: 2em;
+      }
   </style>
   <section class="au-animate">
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <div class="buttons">
-        <button type="submit" class="btn btn-default">投資する！</button>
-      </div>
-    </form>
-  </section>
+    <section class="au-animate">
+        <h2>新しくキャラクターガチャをしますか？</h2>
+        <p>
+            キャラクターをゲットするには、<strong>500円</strong>の貯金が必要です。<br>
+            この貯金は取り崩しできません（あなたの意思の限り）。<br>
+            よろしいですか？<br><br>
+        </p>
+        <form role="form" submit.delegate="submit()">
+            <div class="buttons">
+                <button type="submit" class="btn btn-default">投資する！</button>
+            </div>
+        </form><br><br>
+        <div class="buttons">
+            <a href="#home"><button>キャンセル</button></a>
+        </div>
+    </section>
 </template>

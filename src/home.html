@@ -1,47 +1,196 @@
 <template>
-  <style>
-    .display-top {
-      height: 40%;
-      width: 100%;
-      background-color: gray;
-    }
-    .buttons-2 {
-      text-align: center;
-      margin: 10% auto;
-    }
-    .buttons-3 {
-      text-align: center;
-    }
-    .buttons-2 a {
-      margin: 0 5%;
-      width: 25%;
-      height: 5%;
-    }
-    .buttons-3 a {
-      margin: 0 3%;
-      width: 25%;
-      height: 5%;
-    }
-  </style>
-  <canvas class="display-top">
-  </canvas>
-  <section class="au-animate">
-    <h2>${message}</h2>
-    <ul>
-      <li>なまえ：${response.bank.name}</li>
-      <li>レベル：${response.bank.level}</li>
-      <li>貯金額 / 目標額：${response.user.achievement} / ${response.user.goal}</li>
-      <li>img：${response.img}</li>
-      <li>bank_img：${response.bank_image}</li>
-    </ul>
-    <div class="buttons-2">
-      <a class="btn btn-default" href="#character">キャラ</a>
-      <a class="btn btn-default" href="#item">アイテム</a>
+  <div id="home">
+    <style>
+      html, body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #home>div {
+        position: fixed;
+      }
+
+      .background
+      {
+        width: 100%; height: 100%;
+        background-image: url('../styles/background-01.jpg');
+        background-size: contain;
+        background-color: red;
+      }
+
+      .userdata
+      {
+        width: 100%;
+        top: 1em;
+        padding: 1em;
+      }
+
+      .userdata { font-size: 3em; }
+
+      .userdata>div
+      {
+        width: 45%;
+        float: left;
+      }
+
+      .userdata .text
+      {
+        margin-right: 50px;
+        box-sizing: border-box;
+        padding: 0.5em;
+        background-color: rgba(255,255,255,0.8);
+        border-radius: 1em;
+      }
+
+      .userdata .bars
+      {
+        padding-top: 0.5em;
+      }
+
+      .name {
+        margin-bottom: 1em;
+      }
+
+      .girl {
+        font-size: 1.2em;
+        text-align: right;
+      }
+
+      .saving.bar {
+        margin-bottom: 0.2em;
+      }
+
+      .bar {
+        height: 1em;
+        border-radius: 0.5em;
+
+        width: 80%;
+        background-color: yellow;
+      }
+
+      .bar .bar.data {
+        width: 40%;
+        background-color: green;
+      }
+
+      .userdata::after {clear:both;}
+
+      .character {
+        right: 10%;
+        height: 39%;
+        top: 23%;
+        width: 62%;
+      }
+
+      .character img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: contain;
+      }
+
+      .message {
+        font-size: 2.2em;
+        z-index: 10;
+        top: 60%;
+        height: 15%;
+
+        left: 5%;
+        width: 90%;
+
+        box-sizing: border-box;
+        border: solid 3px black;
+        border-radius: 1em;
+        padding: 1em;
+
+        background-color: white;
+      }
+
+      .buttons {
+        bottom: 0;
+        height: 35%;
+        width: 100%;
+      }
+
+      .buttons button {
+        border: solid 1px black;
+        background-color: rgba(0,0,0,0.8);
+        color: white;
+        padding: 0.3em 0;
+
+        font-size: 4em;
+      }
+
+      .buttons>div {
+        margin: 0 auto;
+        width: 90%;
+      }
+
+      .buttons .top {
+        margin-top: 200px;
+        margin-bottom: 50px;
+      }
+
+      .buttons .top button {
+        width: 46%;
+      }
+
+      .buttons .bottom button {
+        width: 29%;
+      }
+
+      .item, .friend, .data {
+        margin-right: 50px
+      }
+    </style>
+    <div class="background"></div>
+    <div class="userdata">
+      <div class="text">
+        <div class="name">
+          ${response.user.name}頭取
+        </div>
+        <div class="bank">
+          ${response.bank.name}
+        </div>
+        <div class="girl">
+          銀子
+        </div>
+      </div>
+      <div class="bars">
+        <div class="saving">
+          貯金
+        </div>
+        <div class="saving bar">
+          <div class="data bar" style.bind="w1"></div>
+        </div>
+        <div class="level">
+          Lv.
+        </div>
+            <div class="level bar">
+          <div class="data bar" style.bind="w2"></div>
+        </div>
+      </div>
     </div>
-    <div class="buttons-3">
-      <a class="btn btn-default" href="#friend">フレンド</a>
-      <a class="btn btn-default" href="#data">データ</a>
-      <a class="btn btn-default" href="#setting">設定</a>
+    <div class="character" click.delegate="messageupdate()">
+      <img src.bind="hair">
+      <img src.bind="cloth">
+      <img src.bind="face">
     </div>
-  </section>
+    <div class="message">
+      ${message}
+    </div>
+    <div class="buttons">
+      <div class="top">
+        <a href="#item_equip"><button class="item">アイテム</button></a>
+        <a href="#character"><button class="chara">キャラクター</button></a>
+      </div>
+      <div class="bottom">
+        <a href="#friend"><button class="friend">フレンド</button></a>
+        <a href="#data"><button class="data">通帳</button></a>
+        <a href="#setting"><button class="setting">設定</button></a>
+      </div>
+    </div>
+  </div>
 </template>

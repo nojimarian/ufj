@@ -22,6 +22,14 @@ export class ItemEquip {
   }
   response;
   activate() {
+      var b: any = new HttpClient()
+          .fetch('http://54.238.223.36:3000/home')
+          .then(response => response.json())
+          .then(response => {
+              this.hair = "http://54.238.223.36:3000" + response.image.hair;
+              this.face = "http://54.238.223.36:3000" + response.image.face;
+              this.cloth = "http://54.238.223.36:3000" + response.image.cloth;
+          });
 
     var a: any = new HttpClient()
         .fetch('http://54.238.223.36:3000/item')

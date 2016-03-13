@@ -1,50 +1,180 @@
 <template>
   <style>
-    .display-top {
-      height: 40%;
+    html, body {
       width: 100%;
-      background-color: gray;
+      height: 100%;
+      margin: 0;
+      padding: 0;
     }
 
-    .status1 {
-        background-color: red;
+    #home>div {
+      position: fixed;
     }
-    .buttons {
-      clear:both;
+
+    .counter {
+      bottom: 0;
+      height: 50%;
+      width: 100%;
+
+      box-sizing: border-box;
+      padding-top: 5em;
+
+      background-color: yellowgreen;
+
+    }
+
+    .background
+    {
+      width: 100%; height: 100%;
+      background-image: url(../styles/background-01.jpg);
+      background-size: contain;
+      background-color: red;
+    }
+
+    .message>div {
+      margin-bottom: 0.5em;
+    }
+
+    .girl {
+      font-size: 1.2em;
+      text-align: right;
+    }
+
+    .back {
+      left: 1em;
+      top: 1em;
+    }
+
+    .back button {
+      width: 4em;
+    }
+
+    .character {
+      left: 20%;
+      height: 39%;
+      top: 12%;
+      width: 62%;
+    }
+
+    .character img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+    }
+
+    button {
+      border: solid 1px black;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      padding: 0.3em 0;
+
+      font-size: 4em;
+    }
+
+    .buttons>div {
+      margin: 0 auto;
+      width: 90%;
+    }
+
+    .buttons .top button {
+      width: 46%;
+    }
+
+    .invest {
+      margin-right: 50px
+    }
+
+
+    .items {
+      margin: 5em auto;
+      width: 90%;
+    }
+
+    .items img {
+      width: 150px;
+      height: 150px;
+      background-color: white;
+    }
+
+    .name {
       text-align: center;
+      line-height: 150px;
+      font-size: 3em;
     }
-    .buttons a {
-      margin: 10% 5%;
-      width: 30%;
-      height: 5%;
+
+    .itemlist {
+      margin-top: 1em;
     }
-    h3 {
-      clear:both ;
+
+    .itemlist>* {
+      display: block;
+      float: left;
+      margin-left: 2em;
+      width: 150px;
+      height: 150px;
+      box-sizing: border-box;
+    }
+
+    .itemlist::after {content: ""; display:block; clear: both;}
+
+    .items .name {
+      background-color: white;
+      border: solid 4px black;
+      margin-left: 0;
+    }
+
+    .items input {
+      display: none;
+    }
+
+    .items input:checked+* {
+      border: solid 4px red;
     }
   </style>
-  <canvas class="display-top">
-  </canvas>
-  <section>
-    <h2>${heading}</h2>
-    <form role="form" submit.delegate="submit()">
-      <h3>髪型</h3>
-      <!-- ラジオボタンできてない-->
-      <div repeat.for="row of response.hairs">
-        <div class="status${row.is_set}">
-          <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id">
-          ${row.name}
-        </div>
-      </div>
-      <h3>衣装</h3>
-      <div repeat.for="row of response.cloths">
-        <div class="status${row.is_set}">
-          <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id">
-          ${row.name}
-        </div>
-      </div>
+  <div id="home">
+    <div class="background"></div>
+    <div class="back">
+      <a href="#home"><button>HOME</button></a>
+    </div>
+    <div class="character">
+      <img src.bind="hair">
+      <img src.bind="cloth">
+      <img src.bind="face">
+    </div>
+    <div class="counter">
+      <form role="form" submit.delegate="submit()">
       <div class="buttons">
-        <button type="submit" class="btn btn-default">着替える</button>
+        <div class="top">
+          <a href="#item_invest"><button type="button" class="invest">投資</button></a>
+          <button class="change">装着する</button></a>
+        </div>
       </div>
-    </form>
-  </section>
+      <div class="items">
+        <div class="cloth itemlist">
+          <div class="name">
+            制服
+          </div>
+          <div repeat.for="row of response.cloths">
+            <label>
+              <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id" />
+              <img src="${row.image}" />
+            </label>
+          </div>
+        </div>
+        <div class="hair itemlist">
+          <div class="name">
+            髪型
+          </div>
+          <div repeat.for="row of response.hairs">
+            <label>
+              <input type="radio" name="item_id" value="${row.id}" checked.bind="$parent.item_id" />
+              <img src="${row.image}" />
+            </label>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
 </template>

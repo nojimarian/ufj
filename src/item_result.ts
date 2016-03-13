@@ -10,6 +10,8 @@ export class InvestResult {
   heading = 'アイテムゲット！';
   router;
     message = 'はずれ！';
+    bgcolor = "red";
+    imgurl;
   static inject() { return [Router]; }
   constructor(router) { this.router = router; }
 
@@ -23,7 +25,9 @@ export class InvestResult {
             console.log(this.response);
             if (this.response.name) {
                 this.message = this.response.name+'をゲットしました！';
+                this.bgcolor = "deepskyblue";
             }
+            this.imgurl = 'http://54.238.223.36:3000'+this.response.image;
         });
     return a;
   }

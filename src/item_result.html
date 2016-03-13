@@ -1,5 +1,13 @@
 <template>
   <style>
+    body {
+      background-color: ${bgcolor};
+    }
+    section {
+      font-size: 2em;
+      padding: 1em;
+    }
+
     .item-board {
       text-align: center;
       width: 100%;
@@ -7,33 +15,44 @@
       margin: 10% 0;
     }
     .item-img {
-      width: 50%;
-      height: 100%;
+      width: 200px;
+      height: 200px;
       margin: auto;
-      background-color: gray;
+      background-color: transparent;
     }
     p {
       text-align: center;
     }
+
     .buttons {
       text-align: center;
+      margin: auto;
     }
-    .buttons a {
-      width: 30%;
+    .buttons button{
+      width: 50%;
       height: 5%;
+    }
+
+    button {
+      border: solid 1px black;
+      background-color: rgba(0,0,0,0.8);
+      color: white;
+      padding: 0.3em 0;
+
+      font-size: 2em;
     }
   </style>
   <section>
     <h2>${heading}</h2>
     <div class="item-board">
-      <img class="item-img">
+      <img class="item-img" src.bind="imgurl">
     </div>
     <p>
       <strong>${response.message}</strong><br>
       やったぜ
     </p>
     <div class="buttons">
-      <a class="btn btn-default" href="#item">もどる</a>
+      <a class="btn btn-default" href="#item_equip"><button>もどる</button></a>
     </div>
   </section>
 </template>

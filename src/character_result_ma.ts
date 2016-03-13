@@ -14,7 +14,7 @@ export class CharacterResult {
   response;
   activate() {
     var a: any = new HttpClient()
-        .fetch('http://54.238.223.36:3000/character_fuse?bank1_id=1&bank2_id=2')
+        .fetch('http://54.238.223.36:3000/character_fuse?bank1_id=1&bank2_id=3')
         .then(response => response.json())
         .then(response => {
           this.response = response;
